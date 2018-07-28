@@ -101,6 +101,10 @@ public:
     float current_total_mah(uint8_t instance) const;
     float current_total_mah() const { return current_total_mah(AP_BATT_PRIMARY_INSTANCE); }
 
+    /// reset_current_total_mah - resets total current drawn since start-up (= resets battery percentage)
+    void reset_current_total_mah(uint8_t instance);
+    void reset_current_total_mah() { reset_current_total_mah(AP_BATT_PRIMARY_INSTANCE); }
+
     /// capacity_remaining_pct - returns the % battery capacity remaining (0 ~ 100)
     virtual uint8_t capacity_remaining_pct(uint8_t instance) const;
     uint8_t capacity_remaining_pct() const { return capacity_remaining_pct(AP_BATT_PRIMARY_INSTANCE); }

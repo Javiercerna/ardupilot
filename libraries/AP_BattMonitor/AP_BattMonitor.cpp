@@ -283,6 +283,11 @@ float AP_BattMonitor::current_total_mah(uint8_t instance) const {
     }
 }
 
+/// reset_current_total_mah - resets total current drawn since start-up (= resets battery percentage)
+void AP_BattMonitor::reset_current_total_mah(uint8_t instance) {
+    _BattMonitor_STATE(instance).current_total_mah = 0;
+}
+
 /// capacity_remaining_pct - returns the % battery capacity remaining (0 ~ 100)
 uint8_t AP_BattMonitor::capacity_remaining_pct(uint8_t instance) const
 {

@@ -1241,6 +1241,15 @@ void GCS_MAVLINK_Copter::handleMessage(mavlink_message_t* msg)
             }
             break;
 
+        case MAV_CMD_RESET_BATTERY_PCT:
+            copter.battery.reset_current_total_mah();
+            copter.failsafe.battery = false;
+            break;
+
+        case MAV_CMD_DISABLE_BATT_FAILSAFE:
+            copter.failsafe.battery = false;
+            break;
+        
         case MAV_CMD_PREFLIGHT_CALIBRATION:
             // exit immediately if armed
             if (copter.motors->armed()) {
